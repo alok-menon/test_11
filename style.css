@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 body {
-    background-color: #ffe6e6;
+    background: linear-gradient(120deg, #ff758c, #ff7eb3, #ff92c2);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,38 +14,73 @@ body {
     font-family: 'Dancing Script', cursive;
 }
 
+/* Background Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .container {
-    background: rgba(255, 182, 193, 0.8);
+    background: rgba(255, 182, 193, 0.9);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(255, 20, 147, 0.5);
+    box-shadow: 0px 5px 15px rgba(255, 20, 147, 0.5);
     width: 90%;
     max-width: 500px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.container:hover {
+    transform: scale(1.05);
 }
 
 h1 {
-    color: #ff3366;
+    color: #fff;
     font-size: 3em;
+    text-shadow: 2px 2px 5px rgba(255, 20, 147, 0.5);
 }
 
 p {
     font-size: 1.5em;
-    color: #d63384;
+    color: #fff;
 }
 
 .btn {
-    background: #ff4d6d;
+    background: linear-gradient(45deg, #ff4d6d, #ff3366);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 1.2em;
+    border-radius: 30px;
+    font-size: 1.3em;
+    transition: 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(255, 20, 147, 0.5);
 }
 
+/* Button hover effect */
 .btn:hover {
-    background: #d63384;
-    transition: 0.3s ease;
+    background: linear-gradient(45deg, #ff3366, #d63384);
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(255, 20, 147, 0.7);
+}
+
+/* Surprise Image Styling */
+.hidden {
+    display: none;
+}
+
+#surprise-image {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#uploaded-surprise {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 20, 147, 0.5);
 }
 
 /* Image Upload Styling */
@@ -54,20 +91,14 @@ p {
 .upload-label {
     display: block;
     font-size: 1.2em;
-    color: #ff3366;
+    color: white;
     margin-bottom: 10px;
     cursor: pointer;
+    text-decoration: underline;
 }
 
 #file-input {
     display: none;
-}
-
-#image-preview img {
-    max-width: 100%;
-    margin-top: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 20, 147, 0.5);
 }
 
 /* Falling Roses Animation */
