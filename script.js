@@ -1,5 +1,23 @@
-function showMessage() {
-    alert("Wishing you a day as lovely as a rose, Ardhra! 💖🌹");
+function showSurprise() {
+    const surpriseImage = document.getElementById("surprise-image");
+    if (surpriseImage.classList.contains("hidden")) {
+        surpriseImage.classList.remove("hidden");
+    } else {
+        surpriseImage.classList.add("hidden");
+    }
+}
+
+// Function to preview uploaded surprise image
+function previewSurprise(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            const uploadedImage = document.getElementById("uploaded-surprise");
+            uploadedImage.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+    }
 }
 
 // Function to create falling roses
@@ -12,19 +30,6 @@ function createFallingRoses() {
         rose.style.animationDuration = Math.random() * 3 + 2 + "s";
         rose.classList.add("rose");
         roseContainer.appendChild(rose);
-    }
-}
-
-// Function to preview uploaded image
-function previewImage(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function () {
-            const preview = document.getElementById("image-preview");
-            preview.innerHTML = `<img src="${reader.result}" alt="Uploaded Image">`;
-        };
-        reader.readAsDataURL(file);
     }
 }
 
