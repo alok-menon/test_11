@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Day for Ardhra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Happy Rose Day, Ardhra! 🌹</h1>
+        <p>May your life be as beautiful and fragrant as a rose.</p>
+        
+        <button class="btn" onclick="showMessage()">Click for a Surprise</button>
+
+        <!-- Image Upload Section -->
+        <div class="image-upload">
+            <label for="file-input" class="upload-label">Upload Your Image</label>
+            <input type="file" id="file-input" accept="image/*" onchange="previewImage(event)">
+            <div id="image-preview"></div>
+        </div>
+    </div>
+
+    <div class="falling-roses"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
