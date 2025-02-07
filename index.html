@@ -3,31 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rose Day for Ardhra</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Rose Day Celebration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .rose-image {
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+        .surprise-button {
+            background-color: #ff4757;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .surprise-button:hover {
+            background-color: #ff6b81;
+        }
+    </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🌹 Happy Rose Day, Ardhra! 🌹</h1>
-        <p>Wishing u a rose day i couldnt give it to u in irl soo a rose for my rose.</p>
-        
-        <!-- Surprise Button -->
-        <button class="btn" onclick="showSurprise()">Dont open this</button>
-
-        <!-- Surprise Image Section -->
-        <div id="surprise-image" class="hidden">
-            <img id="uploaded-surprise" src="img.jpeg" alt="Your Surprise Image">
+        <div class="header">
+            <h1>Happy Rose Day!</h1>
+            <p>Celebrate love and friendship with beautiful roses.</p>
+            <img src="https://via.placeholder.com/300x200.png?text=Rose" alt="Rose" class="rose-image">
         </div>
 
-        <!-- Image Upload Section -->
-        <div class="image-upload">
-            <label for="file-input" class="upload-label">Upload Your Surprise Image</label>
-            <input type="file" id="file-input" accept="image/*" onchange="previewSurprise(event)">
+        <div class="text-center">
+            <button class="surprise-button" id="surpriseButton">Surprise Me!</button>
+            <input type="file" id="imageUpload" style="display: none;" accept="image/*">
         </div>
+
+        <div class="text-center mt-4" id="imageContainer"></div>
     </div>
 
-    <div class="falling-roses"></div>
+    <script>
+        document.getElementById('surpriseButton').addEventListener('click', function() {
+            document.getElementById('imageUpload').click();
+        });
+
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'rose-image';
+                    document.getElementById('imageContainer').innerHTML = '';
+                    document.getElementById('imageContainer').appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
 
     <script src="script.js"></script>
 </body>
